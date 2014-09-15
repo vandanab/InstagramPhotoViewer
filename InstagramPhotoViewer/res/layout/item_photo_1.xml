@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+	        android:id="@+id/imgPhoto"
+	        android:adjustViewBounds="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:scaleType="fitXY"
+	        android:src="@drawable/ic_launcher" />
+
+        <TextView
+        	android:id="@+id/tvCaption"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:ellipsize="end"
+	        android:maxLines="3"
+	        android:text="@string/caption_default_text" />
+
+	    <TextView
+	        android:id="@+id/tvLikesCount"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:gravity="center"
+	        android:textColor="#015994"
+	        android:drawableLeft="@drawable/likesicon_color_48"
+	        android:drawablePadding="5dp"
+	        android:text="TextView" />
+
+	    <TextView 
+	        android:id="@+id/tvComment"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:drawableLeft="@drawable/commentsicon_color_48"
+	        android:drawablePadding="5dp"
+	        android:text="TextView" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#99ffffff" >
+
+        <ImageView
+            android:id="@+id/imgProfilePic"
+	        android:adjustViewBounds="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:maxHeight="40dp"
+	        android:maxWidth="40dp"
+	        android:scaleType="fitXY"
+	        android:layout_margin="5dp"
+	        android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical"
+	        android:ellipsize="end"
+	        android:maxLines="1"
+	        android:textColor="#015994"
+	        android:textStyle="bold"
+	        android:text="TextView" />
+
+    </LinearLayout>
+
+</FrameLayout>
