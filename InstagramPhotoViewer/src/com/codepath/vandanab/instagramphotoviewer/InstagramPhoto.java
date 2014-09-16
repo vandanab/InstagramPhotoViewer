@@ -8,6 +8,7 @@ public class InstagramPhoto {
 	public String profileImageUrl;
 	public String caption;
 	public String imageUrl;
+	public String relativeTimeString;
 	public int imageHeight;
 	public int likesCount;
 	public ArrayList<Comment> comments;

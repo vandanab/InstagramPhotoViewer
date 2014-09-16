@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 	public InstagramPhotosAdapter(Context context, ArrayList<InstagramPhoto> photos) {
@@ -37,7 +38,8 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 
 		// Lookup the subview within the template.
 		ImageView imgPhoto = (ImageView) convertView.findViewById(R.id.imgPhoto);
-		ImageView imgProfilePic = (ImageView) convertView.findViewById(R.id.imgProfilePic);
+		//ImageView imgProfilePic = (ImageView) convertView.findViewById(R.id.imgProfilePic);
+		CircularImageView imgProfilePic = (CircularImageView) convertView.findViewById(R.id.imgProfilePic);
 		TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
 		TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
 		TextView tvLikesCount = (TextView) convertView.findViewById(R.id.tvLikesCount);

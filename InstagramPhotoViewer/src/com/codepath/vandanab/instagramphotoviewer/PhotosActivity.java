@@ -1,6 +1,7 @@
 package com.codepath.vandanab.instagramphotoviewer;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -9,6 +10,8 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -80,6 +83,11 @@ public class PhotosActivity extends Activity {
 								photo.comments.add(comment);
 							}
 						}
+						long now = System.currentTimeMillis();
+						long creationTimestamp = photoJSON.getLong("created_time");
+						photo.relativeTimeString = (String) DateUtils.getRelativeTimeSpanString(
+								creationTimestamp * 1000, now, DateUtils.HOUR_IN_MILLIS, DateUtils.FORMAT_ABBREV_ALL);
+						Log.i("INFO", photo.relativeTimeString);
 						photos.add(photo);
 					}
 					// notify the adapter that it should populate new changes into the listview.
