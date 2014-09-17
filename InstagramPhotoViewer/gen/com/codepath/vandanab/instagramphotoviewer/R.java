@@ -56,13 +56,14 @@ containing a value of this type.
         public static final int likesicon_color_48=0x7f020003;
     }
     public static final class id {
-        public static final int imgPhoto=0x7f060003;
-        public static final int imgProfilePic=0x7f060001;
-        public static final int lvPhotos=0x7f060000;
-        public static final int tvCaption=0x7f060004;
-        public static final int tvComment=0x7f060006;
-        public static final int tvLikesCount=0x7f060005;
-        public static final int tvUsername=0x7f060002;
+        public static final int imgPhoto=0x7f060004;
+        public static final int imgProfilePic=0x7f060002;
+        public static final int lvPhotos=0x7f060001;
+        public static final int swipeContainer=0x7f060000;
+        public static final int tvCaption=0x7f060005;
+        public static final int tvComment=0x7f060007;
+        public static final int tvLikesCount=0x7f060006;
+        public static final int tvUsername=0x7f060003;
     }
     public static final class layout {
         public static final int activity_photos=0x7f030000;

@@ -9,6 +9,8 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.ListView;
@@ -21,20 +23,33 @@ public class PhotosActivity extends Activity {
 	private static final String URL = "https://api.instagram.com/v1/media/popular?client_id=";
 	private ArrayList<InstagramPhoto> photos;
 	private InstagramPhotosAdapter photosAdapter;
+	private SwipeRefreshLayout swipePhotosContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
-        // Send the request and download the data from internet.
-        fetchPopularPhotos();
+
+        setupSwipeRefresh();
     }
 
-	private void fetchPopularPhotos() {
+    private void setupSwipeRefresh() {
+    	swipePhotosContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+    	swipePhotosContainer.setOnRefreshListener(new OnRefreshListener() {
+    		@Override
+    		public void onRefresh() {
+    			// Send the request and download the data from internet.
+    			fetchPopularPhotos(0);
+    		}
+    	});
+    }
+
+	public void fetchPopularPhotos(int i) {
 		// Create data source.
 		photos = new ArrayList<InstagramPhoto>();
 		// Create the adapter and bind it to the data source.
 		photosAdapter = new InstagramPhotosAdapter(this, photos);
+
 		// Populate the data into the listview.
 		ListView lvPhotos = (ListView) findViewById(R.id.lvPhotos);
 		lvPhotos.setAdapter(photosAdapter); // this triggers actual population of items.
@@ -95,6 +110,7 @@ public class PhotosActivity extends Activity {
 					// Fire if there is a problem in parsing the data JSONArray in the response.
 					e.printStackTrace();
 				}
+				swipePhotosContainer.setRefreshing(false);
 			}
 
 			@Override
