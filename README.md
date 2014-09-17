@@ -11,7 +11,7 @@ Completed user stories:
 
  * Required: User can scroll through a list of popular photos from Instagram.
  * Required: For each photo displayed, user can see the following details:
-           Graphic, caption, username, like count, user profile image.
+           Graphic, caption, username, like count, user profile image, relative time string.
  * Optional: 2 comments on the picture with the username of the commenter.
  * Optional: Rendering similar to Instagram (same proportions as instagram).
  * Optional: Added pull-to-refresh functionality using SwipeRefreshLayout.
