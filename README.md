@@ -5,7 +5,7 @@ An app for viewing popular photos from instagram.
 
 This is an Android application for displaying the most popular images from Instagram using the Instagram API.
 
-Time spent: 6 hours spent in total
+Time spent: 8 hours spent in total
 
 Completed user stories:
 
