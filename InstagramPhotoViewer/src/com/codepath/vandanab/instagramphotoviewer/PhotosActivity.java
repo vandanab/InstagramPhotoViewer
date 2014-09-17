@@ -1,7 +1,6 @@
 package com.codepath.vandanab.instagramphotoviewer;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
