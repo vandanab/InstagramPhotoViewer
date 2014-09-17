@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -23,7 +24,9 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 		TextView username;
 		TextView caption;
 		TextView likesCount;
-		TextView comment;
+		TextView comment1;
+		TextView comment2;
+		TextView creationTime;
 	}
 
 	public InstagramPhotosAdapter(Context context, ArrayList<InstagramPhoto> photos) {
@@ -55,7 +58,9 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 			viewHolder.caption = (TextView) convertView.findViewById(R.id.tvCaption);
 			viewHolder.username = (TextView) convertView.findViewById(R.id.tvUsername);
 			viewHolder.likesCount = (TextView) convertView.findViewById(R.id.tvLikesCount);
-			viewHolder.comment = (TextView) convertView.findViewById(R.id.tvComment);
+			viewHolder.comment1 = (TextView) convertView.findViewById(R.id.tvComment1);
+			viewHolder.comment2 = (TextView) convertView.findViewById(R.id.tvComment2);
+			viewHolder.creationTime = (TextView) convertView.findViewById(R.id.tvCreationTime);
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
@@ -78,7 +83,12 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 		viewHolder.username.setText(photo.username);
 		viewHolder.caption.setText(Html.fromHtml("<font color=\"#015994\"><b>" + photo.username +
 				"</b></font> -- " + photo.caption));
-		viewHolder.photo.getLayoutParams().height = photo.imageHeight;
+		if (photo.imageHeight > 200) {
+			viewHolder.photo.getLayoutParams().height = LinearLayout.LayoutParams.WRAP_CONTENT;
+		} else {
+			viewHolder.photo.getLayoutParams().height = photo.imageHeight;
+		}
+		// viewHolder.photo.getLayoutParams().height = photo.imageHeight;
 		// Reset the image from the recycled view.
 		viewHolder.photo.setImageResource(0);
 		// Ask for the photo to be added to the imageview based on the photo url.
@@ -89,12 +99,24 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 		Picasso.with(getContext()).load(photo.imageUrl).into(viewHolder.photo);
 		viewHolder.likesCount.setText(photo.likesCount + " likes");
 		if (photo.comments.size() > 0) {
-			viewHolder.comment.setVisibility(View.VISIBLE);
+			viewHolder.comment1.setVisibility(View.VISIBLE);
 			InstagramPhoto.Comment comment = photo.comments.get(0); 
-			viewHolder.comment.setText(Html.fromHtml("<font color=\"#015994\"><b>" + comment.username + "</font></b> " + comment.text));
+			viewHolder.comment1.setText(Html.fromHtml("<font color=\"#015994\"><b>" + comment.username + "</font></b> " + comment.text));
+			if (photo.comments.size() > 1) {
+				viewHolder.comment2.setVisibility(View.VISIBLE);
+				comment = photo.comments.get(1); 
+				viewHolder.comment2.setText(Html.fromHtml("<font color=\"#015994\"><b>" + comment.username + "</font></b> " + comment.text));
+			} else {
+				viewHolder.comment2.setVisibility(View.INVISIBLE);
+			}
 		} else {
-			viewHolder.comment.setVisibility(View.INVISIBLE);
+			viewHolder.comment1.setVisibility(View.INVISIBLE);
+			viewHolder.comment2.setVisibility(View.INVISIBLE);
 		}
+
+		String formattedCreationTime = photo.relativeTimeString.replace(" ago", "");
+		formattedCreationTime = formattedCreationTime.replace(" hours", "h");
+		viewHolder.creationTime.setText(formattedCreationTime);
 
 		// Return the view for that data item
 		return convertView;

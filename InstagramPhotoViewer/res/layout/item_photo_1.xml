@@ -13,8 +13,8 @@
 	        android:id="@+id/imgPhoto"
 	        android:adjustViewBounds="true"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:scaleType="fitXY"
+	        android:layout_height="200dp"
+	        android:scaleType="fitCenter"
 	        android:src="@drawable/ic_launcher" />
 
         <TextView
@@ -38,23 +38,38 @@
 	        android:text="TextView" />
 
 	    <TextView 
-	        android:id="@+id/tvComment"
+	        android:id="@+id/tvCommentCaption"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
 	        android:drawableLeft="@drawable/commentsicon_color_48"
 	        android:drawablePadding="5dp"
+	        android:textColor="#757575"
+	        android:text="@string/comments_label" />
+	    
+	    <TextView 
+	        android:id="@+id/tvComment1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:text="TextView" />
+	    
+	    <TextView
+	        android:id="@+id/tvComment2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
 	        android:text="TextView" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#bbffffff" >
 
-        <!-- <ImageView
+        <!--
+             <ImageView
             android:id="@+id/imgProfilePic"
 	        android:adjustViewBounds="true"
 	        android:layout_width="wrap_content"
@@ -63,30 +78,46 @@
 	        android:maxWidth="40dp"
 	        android:scaleType="fitXY"
 	        android:layout_margin="5dp"
-	        android:src="@drawable/ic_launcher" /> -->
+	        android:src="@drawable/ic_launcher" />
+        -->
 
-	    <com.mikhaellopez.circularimageview.CircularImageView
-	        android:id="@+id/imgProfilePic"
-	        android:adjustViewBounds="true"
-	        android:layout_width="50dp"
-	        android:layout_height="50dp"
-	        android:layout_margin="5dp"
-	        android:src="@drawable/ic_launcher"
-	        app:border_color="#EEEEEE"
-	        app:border_width="0dp"
-	        app:shadow="true" />
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imgProfilePic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_launcher"
+            app:border_color="#EEEEEE"
+            app:border_width="0dp"
+            android:layout_alignParentLeft="true" />
 
         <TextView
             android:id="@+id/tvUsername"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center_vertical"
-	        android:ellipsize="end"
-	        android:maxLines="1"
-	        android:textColor="#015994"
-	        android:textStyle="bold"
-	        android:text="TextView" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textColor="#015994"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/imgProfilePic"
+            android:layout_centerInParent="true" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tvCreationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"
+            android:drawableLeft="@drawable/timeicon_48"
+            android:drawablePadding="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textColor="#757575" />
+
+    </RelativeLayout>
 
 </FrameLayout>

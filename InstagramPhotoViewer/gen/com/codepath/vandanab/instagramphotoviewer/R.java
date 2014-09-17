@@ -54,6 +54,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020001;
         public static final int likesicon_48=0x7f020002;
         public static final int likesicon_color_48=0x7f020003;
+        public static final int timeicon_48=0x7f020004;
     }
     public static final class id {
         public static final int imgPhoto=0x7f060004;
@@ -61,7 +62,10 @@ containing a value of this type.
         public static final int lvPhotos=0x7f060001;
         public static final int swipeContainer=0x7f060000;
         public static final int tvCaption=0x7f060005;
-        public static final int tvComment=0x7f060007;
+        public static final int tvComment1=0x7f060008;
+        public static final int tvComment2=0x7f060009;
+        public static final int tvCommentCaption=0x7f060007;
+        public static final int tvCreationTime=0x7f06000a;
         public static final int tvLikesCount=0x7f060006;
         public static final int tvUsername=0x7f060003;
     }
@@ -73,6 +77,7 @@ containing a value of this type.
     public static final class string {
         public static final int app_name=0x7f040000;
         public static final int caption_default_text=0x7f040003;
+        public static final int comments_label=0x7f040004;
         public static final int hello_world=0x7f040001;
         public static final int popular_photos_caption=0x7f040002;
     }

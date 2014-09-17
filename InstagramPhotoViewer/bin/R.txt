@@ -7,12 +7,16 @@ int drawable commentsicon_color_48 0x7f020000
 int drawable ic_launcher 0x7f020001
 int drawable likesicon_48 0x7f020002
 int drawable likesicon_color_48 0x7f020003
+int drawable timeicon_48 0x7f020004
 int id imgPhoto 0x7f060004
 int id imgProfilePic 0x7f060002
 int id lvPhotos 0x7f060001
 int id swipeContainer 0x7f060000
 int id tvCaption 0x7f060005
-int id tvComment 0x7f060007
+int id tvComment1 0x7f060008
+int id tvComment2 0x7f060009
+int id tvCommentCaption 0x7f060007
+int id tvCreationTime 0x7f06000a
 int id tvLikesCount 0x7f060006
 int id tvUsername 0x7f060003
 int layout activity_photos 0x7f030000
@@ -20,6 +24,7 @@ int layout item_photo 0x7f030001
 int layout item_photo_1 0x7f030002
 int string app_name 0x7f040000
 int string caption_default_text 0x7f040003
+int string comments_label 0x7f040004
 int string hello_world 0x7f040001
 int string popular_photos_caption 0x7f040002
 int style AppBaseTheme 0x7f050000
